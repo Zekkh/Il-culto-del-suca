@@ -78,6 +78,78 @@
     .closing h2 { max-width: 680px; margin-inline: auto; }
     footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .81rem; padding: 25px 0 40px; text-align: center; }
     footer strong { color: var(--gold); font-weight: 600; }
+
+    /* Nuovi riti: stessi colori e componenti del sito originale. */
+    .feature-heading { text-align: center; max-width: 760px; margin: 0 auto 36px; }
+    .feature-heading .section-intro { margin: 0 auto; }
+    .ritual-frame { border: 1px solid var(--line); border-radius: 24px; padding: clamp(24px,4vw,45px); background: linear-gradient(150deg, rgba(173,132,245,.10), rgba(245,205,135,.035)); box-shadow: 0 20px 65px rgba(0,0,0,.12); }
+    .small-print { color: var(--muted); font-size: .86rem; }
+    .ritual-meter { display: flex; align-items: center; justify-content: center; gap: 9px; flex-wrap: wrap; color: var(--muted); font-size: .9rem; margin-top: 20px; }
+    .ritual-meter strong { color: var(--gold); font-variant-numeric: tabular-nums; }
+    .forbidden-wrap { text-align: center; position: relative; overflow: hidden; }
+    .forbidden-disc { display: block; margin: 25px auto; border: 9px solid #460c20; outline: 1px solid #ff8f86; border-radius: 50%; width: min(268px, 65vw); height: min(268px, 65vw); background: radial-gradient(circle at 37% 27%, #ff7475, #cc1f45 40%, #6e0621 78%); box-shadow: 0 0 0 12px rgba(244,53,93,.07), inset 0 -17px 28px rgba(0,0,0,.4), 0 15px 35px rgba(156,0,33,.24); color: #fff9f3; cursor: pointer; font: 800 clamp(1.25rem, 4vw, 1.85rem)/1.25 ui-sans-serif,system-ui,sans-serif; letter-spacing: .08em; text-shadow: 0 2px 8px rgba(0,0,0,.5); transition: transform .18s, filter .18s; }
+    .forbidden-disc:hover { transform: scale(1.045); filter: brightness(1.12); }
+    .forbidden-disc:active { transform: scale(.94); }
+    .forbidden-disc:focus-visible, .btn:focus-visible, .candle:focus-visible, .answer-option:focus-within { outline: 3px solid #fce0aa; outline-offset: 5px; }
+    .forbidden-disc span { display: block; font-size: .8rem; letter-spacing: .21em; opacity: .85; margin-bottom: 10px; }
+    .toggle-sound { font: inherit; font-size: .83rem; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; cursor: pointer; }
+    .toggle-sound:hover { color: var(--gold); border-color: var(--gold); }
+    .forbidden-feedback { color: var(--gold); min-height: 1.6em; margin: 12px auto 0; }
+    .suca-overlay { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(60, 0, 27, .75); z-index: 200; opacity: 0; visibility: hidden; pointer-events: none; text-align: center; }
+    .suca-overlay strong { display: block; font: 900 clamp(4.5rem, 18vw, 15rem)/1 Georgia,serif; color: #ffe2ae; text-shadow: 0 0 28px #ef1749, 0 0 95px #ef1749; transform: scale(.6) rotate(-8deg); }
+    .suca-overlay.show { visibility: visible; animation: revealSuca .8s ease both; }
+    .suca-overlay.show strong { animation: growSuca .8s ease both; }
+    body.suca-shake { animation: wobble .46s ease; }
+    @keyframes revealSuca { 0% { opacity: 0; } 18%, 68% { opacity: 1; } 100% { opacity: 0; } }
+    @keyframes growSuca { 0% { transform: scale(.45) rotate(-8deg); } 48% { transform: scale(1.05) rotate(2deg); } 100% { transform: scale(1.25); } }
+    @keyframes wobble { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(3px); } }
+    .quiz-shell { max-width: 820px; margin: 0 auto; }
+    .quiz-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; color: var(--muted); font-size: .86rem; }
+    .progress-track { height: 7px; border-radius: 999px; background: rgba(255,255,255,.09); overflow: hidden; margin: 18px 0 32px; }
+    .progress-fill { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--violet), var(--gold)); transition: width .25s ease; }
+    .quiz-question { font: 500 clamp(1.4rem,2.5vw,2rem)/1.35 Georgia,serif; margin-bottom: 24px; }
+    .quiz-answers { display: grid; gap: 11px; margin: 0 0 26px; }
+    .answer-option { display: flex; align-items: center; gap: 13px; padding: 14px 17px; border: 1px solid var(--line); border-radius: 13px; cursor: pointer; color: var(--ink); background: rgba(255,255,255,.025); }
+    .answer-option:hover { border-color: var(--violet); background: rgba(173,132,245,.08); }
+    .answer-option:has(input:checked) { border-color: var(--gold); background: rgba(245,205,135,.09); }
+    .answer-option input { accent-color: #f5cd87; width: 17px; height: 17px; flex-shrink: 0; }
+    .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .quiz-result { text-align: center; }
+    .quiz-result .result-icon { font-size: 4rem; }
+    .quiz-result h3 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
+    .quiz-result p { color: var(--muted); }
+    .quiz-result strong { color: var(--gold); }
+    .altar-frame { text-align: center; }
+    .altar-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin: 30px auto 10px; max-width: 750px; }
+    .candle { border: 1px solid var(--line); border-radius: 17px; background: rgba(0,0,0,.15); padding: 30px 4px 14px; cursor: pointer; min-height: 170px; color: var(--muted); display: flex; align-items: center; justify-content: flex-end; flex-direction: column; position: relative; transition: border-color .2s, background .2s; }
+    .candle:hover { border-color: var(--gold); }
+    .candle.is-lit { background: radial-gradient(ellipse at 50% 32%, rgba(245,205,135,.16), rgba(0,0,0,.08) 70%); border-color: rgba(245,205,135,.35); }
+    .flame { display: block; width: 20px; height: 31px; border-radius: 65% 12% 65% 50%; background: linear-gradient(#fff4bc 10%,#ffc752 50%,#ea6c2e); box-shadow: 0 0 25px #ffb94b,0 0 55px rgba(255,162,40,.45); transform: rotate(45deg) scale(.4); opacity: 0; transform-origin: bottom center; margin-bottom: -1px; }
+    .is-lit .flame { opacity: 1; animation: candleFlicker 1.8s ease-in-out infinite alternate; }
+    @keyframes candleFlicker { 0%,100% { transform: rotate(42deg) scale(.9); } 55% { transform: rotate(50deg) scale(1.06); } }
+    .wick { height: 9px; width: 2px; background: #52424b; display: block; }
+    .wax { display: block; width: 41px; height: 74px; background: linear-gradient(90deg, #cab98f, #fff1d1 35%, #d7ba88); border-radius: 5px 5px 7px 7px; box-shadow: 0 8px 15px rgba(0,0,0,.3); }
+    .candle-caption { display: block; font-size: .78rem; margin-top: 12px; }
+    .prayer-form { display: flex; flex-wrap: wrap; gap: 10px; max-width: 620px; margin: 29px auto 0; }
+    .prayer-input { flex: 1 1 240px; min-width: 0; background: rgba(0,0,0,.25); border: 1px solid rgba(245,205,135,.25); border-radius: 999px; padding: 13px 18px; font: inherit; color: var(--ink); }
+    .prayer-input:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .prayer-echo { min-height: 1.6em; color: var(--gold); margin-top: 15px; overflow-wrap: anywhere; }
+    .achievement-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 24px; }
+    .achievement-stats span { color: var(--muted); }
+    .achievement-stats strong { color: var(--gold); }
+    .achievement-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; }
+    .achievement { display: flex; align-items: flex-start; gap: 14px; border: 1px solid var(--line); border-radius: 16px; padding: 19px 17px; background: rgba(255,255,255,.02); }
+    .achievement.locked { opacity: .55; }
+    .achievement.unlocked { border-color: rgba(245,205,135,.55); background: rgba(245,205,135,.07); }
+    .achievement-icon { font-size: 1.85rem; flex-shrink: 0; line-height: 1.3; }
+    .achievement h3 { font: 700 1rem/1.4 ui-sans-serif,system-ui,sans-serif; color: var(--ink); margin: 0 0 6px; }
+    .achievement p { margin: 0; font-size: .83rem; color: var(--muted); }
+    .achievement-footer { text-align: center; margin-top: 26px; }
+    .badge-toast { position: fixed; bottom: 20px; left: 50%; transform: translate(-50%, 120px); opacity: 0; z-index: 205; color: #271b25; font-weight: 750; background: var(--gold); border-radius: 999px; padding: 12px 20px; box-shadow: 0 8px 35px rgba(0,0,0,.4); max-width: min(92vw,500px); text-align: center; transition: transform .3s ease, opacity .3s ease; pointer-events: none; }
+    .badge-toast.visible { transform: translate(-50%,0); opacity: 1; }
+    @media (max-width: 780px) { .altar-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } .achievement-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 530px) { .achievement-grid { grid-template-columns: 1fr; } .ritual-frame { padding: 22px 16px; } .candle { min-height: 150px; } .wax { width: 34px; height: 60px; } .prayer-form .btn { width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { body.suca-shake, .suca-overlay.show, .suca-overlay.show strong, .is-lit .flame { animation: none; } .suca-overlay.show { opacity: .98; visibility: visible; } .suca-overlay.show strong { transform: none; } .progress-fill, .badge-toast { transition: none; } }
     @media (max-width: 780px) { .story { grid-template-columns: 1fr; } .cards { grid-template-columns: 1fr; } .hero { padding: 80px 0 85px; } section { padding: 64px 0; } .nav { justify-content: center; } .nav-links { justify-content: center; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
   </style>
@@ -90,6 +162,10 @@
         <a href="#origini">Le origini</a>
         <a href="#comandamenti">I precetti</a>
         <a href="#oracolo">L'oracolo</a>
+        <a href="#proibito">Non premere</a>
+        <a href="#prova">Il test</a>
+        <a href="#altare">L'altare</a>
+        <a href="#trofei">Trofei</a>
       </nav>
     </header>
     <main>
@@ -152,12 +228,85 @@
         <div id="blessings" aria-live="polite"></div>
       </div>
     </section>
+
+    <!-- Libro IV: il pulsante proibito -->
+    <section id="proibito" aria-labelledby="proibito-title">
+      <div class="feature-heading">
+        <div class="section-kicker">Libro IV · La tentazione</div>
+        <h2 id="proibito-title">Il Pulsante Proibito</h2>
+        <p class="section-intro">È stato sigillato dal Gran Consiglio. Casper ha provato a morderlo. Abu dice che non funziona. <strong>Non premerlo.</strong></p>
+      </div>
+      <div class="ritual-frame forbidden-wrap">
+        <div class="small-print">⚠ AVVERTIMENTO COSMICO ⚠</div>
+        <button type="button" class="forbidden-disc" id="forbiddenButton" aria-describedby="forbiddenFeedback"><span>ASSOLUTAMENTE</span>NON PREMERE</button>
+        <button type="button" class="toggle-sound" id="soundToggle" aria-pressed="true">🔊 Suono: attivo</button>
+        <p class="forbidden-feedback" id="forbiddenFeedback" role="status" aria-live="polite">La tua fedeltà è ancora intatta. Per ora.</p>
+        <div class="ritual-meter">Tentazioni assecondate: <strong id="pressCount">0</strong></div>
+      </div>
+    </section>
+
+    <!-- Libro V: test di iniziazione -->
+    <section id="prova" aria-labelledby="prova-title">
+      <div class="feature-heading">
+        <div class="section-kicker">Libro V · L'iniziazione</div>
+        <h2 id="prova-title">Sei un vero adepto?</h2>
+        <p class="section-intro">Cinque domande, un solo destino. Dimostra di conoscere i precetti, Casper, Abu e la via della sacra imperturbabilità.</p>
+      </div>
+      <div class="ritual-frame quiz-shell">
+        <div class="quiz-top"><span id="quizStep">Domanda 1 di 5</span><span id="quizBest">Record: —</span></div>
+        <div class="progress-track" aria-hidden="true"><span class="progress-fill" id="quizProgress"></span></div>
+        <div id="quizContent" aria-live="polite"><p>Il test si sta preparando...</p></div>
+      </div>
+    </section>
+
+    <!-- Libro VI: altare con sei candele -->
+    <section id="altare" aria-labelledby="altare-title">
+      <div class="feature-heading">
+        <div class="section-kicker">Libro VI · Il santuario digitale</div>
+        <h2 id="altare-title">L'Altare Sacro</h2>
+        <p class="section-intro">Accendi le sei candele della devozione. Ogni fiammella ricorda al cosmo che Casper è il prescelto e Abu deve ancora capire come si vince.</p>
+      </div>
+      <div class="ritual-frame altar-frame">
+        <div class="altar-grid" role="group" aria-label="Sei candele dell'altare">
+          <button type="button" class="candle" data-candle="0" aria-pressed="false" aria-label="Accendi candela I"><span class="flame" aria-hidden="true"></span><span class="wick" aria-hidden="true"></span><span class="wax" aria-hidden="true"></span><span class="candle-caption">I · Fede</span></button>
+          <button type="button" class="candle" data-candle="1" aria-pressed="false" aria-label="Accendi candela II"><span class="flame" aria-hidden="true"></span><span class="wick" aria-hidden="true"></span><span class="wax" aria-hidden="true"></span><span class="candle-caption">II · Casper</span></button>
+          <button type="button" class="candle" data-candle="2" aria-pressed="false" aria-label="Accendi candela III"><span class="flame" aria-hidden="true"></span><span class="wick" aria-hidden="true"></span><span class="wax" aria-hidden="true"></span><span class="candle-caption">III · Gloria</span></button>
+          <button type="button" class="candle" data-candle="3" aria-pressed="false" aria-label="Accendi candela IV"><span class="flame" aria-hidden="true"></span><span class="wick" aria-hidden="true"></span><span class="wax" aria-hidden="true"></span><span class="candle-caption">IV · Ululato</span></button>
+          <button type="button" class="candle" data-candle="4" aria-pressed="false" aria-label="Accendi candela V"><span class="flame" aria-hidden="true"></span><span class="wick" aria-hidden="true"></span><span class="wax" aria-hidden="true"></span><span class="candle-caption">V · Pace</span></button>
+          <button type="button" class="candle" data-candle="5" aria-pressed="false" aria-label="Accendi candela VI"><span class="flame" aria-hidden="true"></span><span class="wick" aria-hidden="true"></span><span class="wax" aria-hidden="true"></span><span class="candle-caption">VI · Suca</span></button>
+        </div>
+        <div class="ritual-meter">Candele accese: <strong id="litCount">0 / 6</strong></div>
+        <form id="prayerForm" class="prayer-form">
+          <label for="prayerInput" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">La tua preghiera satirica</label>
+          <input id="prayerInput" class="prayer-input" type="text" maxlength="120" required placeholder="Offri una preghiera al Suca..." autocomplete="off" />
+          <button class="btn btn-primary" type="submit">Offri la preghiera ✦</button>
+        </form>
+        <div class="prayer-echo" id="prayerEcho" role="status" aria-live="polite"></div>
+        <p class="small-print">La preghiera rimane nel tuo browser: non viene inviata né pubblicata online.</p>
+      </div>
+    </section>
+
+    <!-- Libro VII: traguardi da sbloccare -->
+    <section id="trofei" aria-labelledby="trofei-title">
+      <div class="feature-heading">
+        <div class="section-kicker">Libro VII · Le imprese leggendarie</div>
+        <h2 id="trofei-title">Gli Obiettivi Segreti</h2>
+        <p class="section-intro">Ogni azione lascia una traccia nell'eterno Libro delle Sucature. Sblocca tutti i sigilli, se ne sei degno.</p>
+      </div>
+      <div class="achievement-stats"><span>Sigilli sbloccati: <strong id="achievementTotal">0 / 9</strong></span><span>Miglior test: <strong id="bestScoreSummary">—</strong></span></div>
+      <div class="achievement-grid" id="achievementGrid" aria-live="polite"></div>
+      <div class="achievement-footer"><p class="small-print">I progressi vengono salvati solo su questo dispositivo e browser.</p><button class="btn btn-ghost" id="resetProgress" type="button">Azzera tutti i progressi</button></div>
+    </section>
+
     <section class="closing">
       <div class="section-kicker">La formula eterna</div>
       <h2>Accetta ciò che non puoi cambiare. Cambia ciò che puoi. Al resto, pensa il Suca.</h2>
       <a class="btn btn-ghost" href="#inizio">Torna all'inizio ↑</a>
     </section>
   </div>
+
+  <div id="sucaOverlay" class="suca-overlay" aria-hidden="true"><strong>SUCA!</strong></div>
+  <div id="badgeToast" class="badge-toast" role="status" aria-live="polite"></div>
 
   <footer>
     <div class="container">© <span id="year"></span> Ordine del Suca · <strong>Fede immaginaria, ironia autentica.</strong><br>Questo sito è una parodia e non rappresenta un'organizzazione religiosa reale.</div>
@@ -184,6 +333,253 @@
         '«Il Grande Suca ha finalmente pronunciato il verdetto sulla tua domanda ma fidati non vuoi saperlo.»',
         '«Anche questa seccatura passerà. Nel frattempo: Suca sia.»'
       ];
+
+      // Dati salvati localmente per ogni visitatore, senza server.
+      const STORAGE_KEY = 'ordine-del-suca-progress-v1';
+      const freshProgress = () => ({ presses: 0, oracleCount: 0, candles: [false, false, false, false, false, false], prayers: 0, quizAttempts: 0, bestScore: 0, unlocked: [] });
+      const progress = (() => {
+        try {
+          const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+          if (!value || typeof value !== 'object') return freshProgress();
+          const s = freshProgress();
+          for (const key of ['presses', 'oracleCount', 'prayers', 'quizAttempts', 'bestScore']) {
+            if (Number.isSafeInteger(value[key]) && value[key] >= 0) s[key] = Math.min(value[key], 10000000);
+          }
+          if (Array.isArray(value.candles) && value.candles.length === 6) s.candles = value.candles.map(v => v === true);
+          if (Array.isArray(value.unlocked)) s.unlocked = value.unlocked.filter(v => typeof v === 'string');
+          return s;
+        } catch (_) { return freshProgress(); }
+      })();
+      function saveProgress() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); } catch (_) { /* la navigazione privata può bloccare il salvataggio */ }
+      }
+
+      // Sigilli nascosti e visibili: le condizioni vengono controllate a ogni azione.
+      const achievements = [
+        { id: 'primo', icon: '🔴', title: 'Il Peccato Originale', hint: 'Premi il pulsante proibito.', secret: false, earned: s => s.presses >= 1 },
+        { id: 'diciotto', icon: '🐺', title: 'Il Diciottesimo Ululato', hint: 'Una cifra sacra attende chi osa ripetersi.', secret: true, earned: s => s.presses >= 18 },
+        { id: 'cinquanta', icon: '💀', title: 'Dito dell’Apocalisse', hint: 'Premi il proibito 50 volte.', secret: true, earned: s => s.presses >= 50 },
+        { id: 'scintilla', icon: '🕯️', title: 'Custode della Scintilla', hint: 'Accendi una candela dell’altare.', secret: false, earned: s => s.candles.some(Boolean) || s.unlocked.includes('scintilla') },
+        { id: 'santuario', icon: '✨', title: 'Il Santuario Completo', hint: 'Accendi contemporaneamente tutte le sei candele.', secret: false, earned: s => s.candles.every(Boolean) },
+        { id: 'adepto', icon: '📜', title: 'Iniziato della Setta', hint: 'Completa il test del vero adepto.', secret: false, earned: s => s.quizAttempts >= 1 },
+        { id: 'divino', icon: '👑', title: 'Divinità Suprema', hint: 'Ottieni 5 risposte corrette su 5.', secret: true, earned: s => s.quizAttempts > 0 && s.bestScore === 5 },
+        { id: 'oracolo', icon: '🔮', title: 'Confidente dell’Oracolo', hint: 'Consulta l’oracolo cinque volte.', secret: false, earned: s => s.oracleCount >= 5 },
+        { id: 'preghiera', icon: '🙏', title: 'Supplica Cosmica', hint: 'Lascia un’offerta di parole all’altare.', secret: false, earned: s => s.prayers >= 1 }
+      ];
+      const $ = id => document.getElementById(id);
+      const grid = $('achievementGrid');
+      let toastTimeout;
+      function announceBadge(label) {
+        const toast = $('badgeToast');
+        toast.textContent = `🏆 Obiettivo sbloccato: ${label}`;
+        toast.classList.add('visible');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => toast.classList.remove('visible'), 3300);
+      }
+      function updateAchievements(showToast = true) {
+        const newly = [];
+        achievements.forEach(a => {
+          if (!progress.unlocked.includes(a.id) && a.earned(progress)) {
+            progress.unlocked.push(a.id);
+            newly.push(a);
+          }
+        });
+        if (newly.length && showToast) announceBadge(newly.map(a => a.title).join(' · '));
+        saveProgress();
+        grid.replaceChildren();
+        achievements.forEach(a => {
+          const unlocked = progress.unlocked.includes(a.id);
+          const card = document.createElement('article');
+          card.className = `achievement ${unlocked ? 'unlocked' : 'locked'}`;
+          const ico = document.createElement('span');
+          ico.className = 'achievement-icon';
+          ico.setAttribute('aria-hidden', 'true');
+          ico.textContent = unlocked ? a.icon : '🔒';
+          const details = document.createElement('div');
+          const title = document.createElement('h3');
+          title.textContent = unlocked ? a.title : a.secret ? '??? Sigillo segreto' : a.title;
+          const desc = document.createElement('p');
+          desc.textContent = unlocked ? '✓ Sigillo conquistato' : a.secret ? 'Il segreto si svelerà al momento giusto.' : a.hint;
+          details.append(title, desc);
+          card.append(ico, details);
+          grid.append(card);
+        });
+        $('achievementTotal').textContent = `${progress.unlocked.length} / ${achievements.length}`;
+        const best = progress.quizAttempts ? `${progress.bestScore} / 5` : '—';
+        $('bestScoreSummary').textContent = best;
+        $('quizBest').textContent = `Record: ${best}`;
+      }
+
+      // Pulsante proibito: audio generato sul dispositivo, solo al clic.
+      const forbiddenLines = [
+        'IL CONSIGLIO TI HA VISTO. Anche Casper.',
+        'Hai appena evocato 18 lupacchiotti. Complimenti.',
+        'Abu ha provato a impedirlo. Ha perso anche questa volta.',
+        'La realtà ha chiesto una pausa sindacale.',
+        'Il Grande Suca ha preso nota del tuo gesto.',
+        'Era scritto NON PREMERE. E invece eccoci qui.'
+      ];
+      let soundOn = true;
+      let effectTimeout;
+      function forbiddenSound() {
+        if (!soundOn) return;
+        try {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC) return;
+          const ctx = new AC();
+          const oscillator = ctx.createOscillator();
+          const volume = ctx.createGain();
+          oscillator.type = 'sawtooth';
+          oscillator.frequency.setValueAtTime(190, ctx.currentTime);
+          oscillator.frequency.exponentialRampToValueAtTime(68, ctx.currentTime + .42);
+          volume.gain.setValueAtTime(.0001, ctx.currentTime);
+          volume.gain.exponentialRampToValueAtTime(.045, ctx.currentTime + .025);
+          volume.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + .45);
+          oscillator.connect(volume).connect(ctx.destination);
+          oscillator.start();
+          oscillator.stop(ctx.currentTime + .46);
+          oscillator.onended = () => ctx.close().catch(() => {});
+        } catch (_) { /* AudioContext non disponibile */ }
+      }
+      $('soundToggle').addEventListener('click', () => {
+        soundOn = !soundOn;
+        $('soundToggle').setAttribute('aria-pressed', String(soundOn));
+        $('soundToggle').textContent = soundOn ? '🔊 Suono: attivo' : '🔇 Suono: disattivato';
+      });
+      function updatePressLabel() { $('pressCount').textContent = progress.presses.toLocaleString('it-IT'); }
+      $('forbiddenButton').addEventListener('click', () => {
+        progress.presses++;
+        updatePressLabel();
+        $('forbiddenFeedback').textContent = forbiddenLines[(progress.presses - 1) % forbiddenLines.length];
+        forbiddenSound();
+        const overlay = $('sucaOverlay');
+        overlay.classList.remove('show');
+        document.body.classList.remove('suca-shake');
+        void overlay.offsetWidth; // riparte l'animazione ai clic successivi
+        overlay.classList.add('show');
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.body.classList.add('suca-shake');
+        clearTimeout(effectTimeout);
+        effectTimeout = setTimeout(() => {
+          overlay.classList.remove('show');
+          document.body.classList.remove('suca-shake');
+        }, 820);
+        updateAchievements();
+      });
+
+      // Test del vero adepto: nessuna libreria, funziona anche offline.
+      const quizQuestions = [
+        { q: 'Alle ore 18, cosa deve fare un fedele secondo il quarto precetto?', answers: ['Ululare come un lupacchiotto', 'Mandare un fax ad Abu', 'Andare a dormire'], right: 0 },
+        { q: 'Chi è il cane eletto destinato a sconfiggere Abu?', answers: ['Il maestro Oogway', 'Casper', 'Un kebab senza cipolla'], right: 1 },
+        { q: 'Qual è la risposta solenne a una seccatura inutile?', answers: ['Un trattato in 18 volumi', 'Una conferenza stampa', 'Un dignitoso Suca'], right: 2 },
+        { q: 'Quale saluto si usa tra i fedeli?', answers: ['Che il Suca sia con te', 'Che Abu vinca sempre', 'Buona riunione di condominio'], right: 0 },
+        { q: 'Se le voci annunciano la vittoria di Abu, cosa sono?', answers: ['Un miracolo già verificato', 'Eresie da purificare', 'Il meteo di domani'], right: 1 }
+      ];
+      let quizIndex = 0;
+      let quizScore = 0;
+      function makeElement(tag, cls, value) {
+        const node = document.createElement(tag);
+        if (cls) node.className = cls;
+        if (value !== undefined) node.textContent = value;
+        return node;
+      }
+      function showQuiz() {
+        const host = $('quizContent');
+        host.replaceChildren();
+        $('quizProgress').style.width = `${Math.round(100 * quizIndex / quizQuestions.length)}%`;
+        if (quizIndex >= quizQuestions.length) {
+          progress.quizAttempts++;
+          progress.bestScore = Math.max(progress.bestScore, quizScore);
+          const level = quizScore === 5 ? 'Divinità Suprema del Suca' : quizScore >= 3 ? 'Gran Sacerdote del Suca' : 'Novizio del Suca';
+          $('quizStep').textContent = 'Iniziazione completata';
+          $('quizProgress').style.width = '100%';
+          const result = makeElement('div', 'quiz-result');
+          result.append(makeElement('div', 'result-icon', quizScore === 5 ? '👑' : quizScore >= 3 ? '🛐' : '📜'));
+          result.append(makeElement('h3', '', level));
+          result.append(makeElement('p', '', `Risposte corrette: ${quizScore} su ${quizQuestions.length}. ${quizScore === 5 ? 'Casper approva solennemente.' : quizScore >= 3 ? 'Il Consiglio ti concede un posto all’altare.' : 'Abu ha chiesto di correggerti il compito.'}`));
+          const repeat = makeElement('button', 'btn btn-primary', 'Ripeti l’iniziazione ↻');
+          repeat.type = 'button';
+          repeat.addEventListener('click', () => { quizIndex = 0; quizScore = 0; showQuiz(); });
+          result.append(repeat);
+          host.append(result);
+          updateAchievements();
+          return;
+        }
+        const item = quizQuestions[quizIndex];
+        $('quizStep').textContent = `Domanda ${quizIndex + 1} di ${quizQuestions.length}`;
+        host.append(makeElement('h3', 'quiz-question', item.q));
+        const answers = makeElement('div', 'quiz-answers');
+        let choice = -1;
+        const confirm = makeElement('button', 'btn btn-primary', quizIndex === quizQuestions.length - 1 ? 'Scopri il tuo rango ✦' : 'Conferma e prosegui →');
+        confirm.type = 'button';
+        confirm.disabled = true;
+        item.answers.forEach((answer, i) => {
+          const label = makeElement('label', 'answer-option');
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.name = 'quiz-answer';
+          input.value = String(i);
+          input.addEventListener('change', () => { choice = i; confirm.disabled = false; });
+          label.append(input, document.createTextNode(answer));
+          answers.append(label);
+        });
+        confirm.addEventListener('click', () => {
+          if (choice < 0) return;
+          if (choice === item.right) quizScore++;
+          quizIndex++;
+          showQuiz();
+        });
+        host.append(answers, confirm);
+      }
+
+      // Altare interattivo e preghiera: il testo non viene trasmesso a nessuno.
+      const candleButtons = Array.from(document.querySelectorAll('[data-candle]'));
+      function updateCandles() {
+        candleButtons.forEach((button, index) => {
+          const lit = progress.candles[index];
+          button.classList.toggle('is-lit', lit);
+          button.setAttribute('aria-pressed', String(lit));
+          button.setAttribute('aria-label', `${lit ? 'Spegni' : 'Accendi'} candela ${index + 1}`);
+        });
+        $('litCount').textContent = `${progress.candles.filter(Boolean).length} / 6`;
+      }
+      candleButtons.forEach((button, index) => button.addEventListener('click', () => {
+        progress.candles[index] = !progress.candles[index];
+        updateCandles();
+        updateAchievements();
+      }));
+      $('prayerForm').addEventListener('submit', event => {
+        event.preventDefault();
+        const input = $('prayerInput');
+        const words = input.value.trim();
+        if (!words) return;
+        progress.prayers++;
+        $('prayerEcho').textContent = `✦ «${words}» — Il Suca ha ascoltato. Il cosmo non garantisce risposte.`;
+        input.value = '';
+        updateAchievements();
+      });
+      $('resetProgress').addEventListener('click', () => {
+        if (!window.confirm('Vuoi davvero azzerare il test, le candele e tutti i sigilli sbloccati su questo browser?')) return;
+        Object.assign(progress, freshProgress());
+        quizIndex = 0;
+        quizScore = 0;
+        $('forbiddenFeedback').textContent = 'La tua fedeltà è ancora intatta. Per ora.';
+        $('prayerEcho').textContent = '';
+        $('prayerInput').value = '';
+        blessings = 0;
+        counter.textContent = '';
+        output.textContent = '«Poni una domanda nel silenzio del tuo cuore. Poi premi il pulsante.»';
+        updatePressLabel();
+        updateCandles();
+        showQuiz();
+        updateAchievements(false);
+        $('resetProgress').textContent = 'Progressi azzerati ✓';
+        setTimeout(() => { $('resetProgress').textContent = 'Azzera tutti i progressi'; }, 1900);
+      });
+      updatePressLabel();
+      updateCandles();
+      showQuiz();
+      updateAchievements(false);
+
       let blessings = 0;
       const button = document.getElementById('oracleButton');
       const output = document.getElementById('prophecy');
@@ -195,10 +591,11 @@
         const selected = alternatives[Math.floor(Math.random() * alternatives.length)];
         output.textContent = selected;
         blessings += 1;
+        progress.oracleCount++;
+        updateAchievements();
         counter.textContent = `Benedizioni ricevute in questa visita: ${blessings}`;
       });
     })();
   </script>
 </body>
 </html>
-<!-- Il Culto del Suca -->
