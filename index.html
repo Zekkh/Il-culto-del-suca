@@ -410,7 +410,7 @@
         $('quizBest').textContent = `Record: ${best}`;
       }
 
-      // Pulsante proibito: audio generato sul dispositivo, solo al clic.
+      // Pulsante proibito: tre audio personali, uno casuale a ogni clic.
       const forbiddenLines = [
         'IL CONSIGLIO TI HA VISTO. Anche Casper.',
         'Hai appena evocato 18 lupacchiotti. Complimenti.',
@@ -419,30 +419,47 @@
         'Il Grande Suca ha preso nota del tuo gesto.',
         'Era scritto NON PREMERE. E invece eccoci qui.'
       ];
+      const forbiddenAudio = [
+        new Audio('suca-1.mp3'),
+        new Audio('suca-2.mp3'),
+        new Audio('suca-3.mp3')
+      ];
+      forbiddenAudio.forEach(audio => { audio.preload = 'auto'; });
       let soundOn = true;
       let effectTimeout;
+      let currentAudio = null;
+      let lastAudioIndex = -1;
+      function stopForbiddenSound() {
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+          currentAudio = null;
+        }
+      }
       function forbiddenSound() {
         if (!soundOn) return;
-        try {
-          const AC = window.AudioContext || window.webkitAudioContext;
-          if (!AC) return;
-          const ctx = new AC();
-          const oscillator = ctx.createOscillator();
-          const volume = ctx.createGain();
-          oscillator.type = 'sawtooth';
-          oscillator.frequency.setValueAtTime(190, ctx.currentTime);
-          oscillator.frequency.exponentialRampToValueAtTime(68, ctx.currentTime + .42);
-          volume.gain.setValueAtTime(.0001, ctx.currentTime);
-          volume.gain.exponentialRampToValueAtTime(.045, ctx.currentTime + .025);
-          volume.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + .45);
-          oscillator.connect(volume).connect(ctx.destination);
-          oscillator.start();
-          oscillator.stop(ctx.currentTime + .46);
-          oscillator.onended = () => ctx.close().catch(() => {});
-        } catch (_) { /* AudioContext non disponibile */ }
+        stopForbiddenSound();
+        // Evita di ripetere subito lo stesso audio per due clic consecutivi.
+        let selectedIndex = Math.floor(Math.random() * forbiddenAudio.length);
+        if (forbiddenAudio.length > 1 && selectedIndex === lastAudioIndex) {
+          selectedIndex = (selectedIndex + 1 + Math.floor(Math.random() * (forbiddenAudio.length - 1))) % forbiddenAudio.length;
+        }
+        lastAudioIndex = selectedIndex;
+        const audio = forbiddenAudio[selectedIndex];
+        currentAudio = audio;
+        audio.currentTime = 0;
+        const result = audio.play();
+        if (result && typeof result.catch === 'function') {
+          result.catch(() => {
+            if (currentAudio === audio && soundOn) {
+              $('forbiddenFeedback').textContent += ' · Audio non disponibile: verifica i file MP3 su GitHub.';
+            }
+          });
+        }
       }
       $('soundToggle').addEventListener('click', () => {
         soundOn = !soundOn;
+        if (!soundOn) stopForbiddenSound();
         $('soundToggle').setAttribute('aria-pressed', String(soundOn));
         $('soundToggle').textContent = soundOn ? '🔊 Suono: attivo' : '🔇 Suono: disattivato';
       });
@@ -469,10 +486,10 @@
       // Test del vero adepto: nessuna libreria, funziona anche offline.
       const quizQuestions = [
         { q: 'Alle ore 18, cosa deve fare un fedele secondo il quarto precetto?', answers: ['Ululare come un lupacchiotto', 'Mandare un fax ad Abu', 'Andare a dormire'], right: 0 },
-        { q: 'Chi è il cane eletto destinato a sconfiggere Abu?', answers: ['Il maestro Oogway', 'Casper', 'Un kebab senza cipolla'], right: 1 },
+        { q: 'Chi è il cane eletto destinato a sconfiggere Abu?', answers: ['Il maestro Oogway', 'Casper', 'Bolt'], right: 1 },
         { q: 'Qual è la risposta solenne a una seccatura inutile?', answers: ['Un trattato in 18 volumi', 'Una conferenza stampa', 'Un dignitoso Suca'], right: 2 },
-        { q: 'Quale saluto si usa tra i fedeli?', answers: ['Che il Suca sia con te', 'Che Abu vinca sempre', 'Buona riunione di condominio'], right: 0 },
-        { q: 'Se le voci annunciano la vittoria di Abu, cosa sono?', answers: ['Un miracolo già verificato', 'Eresie da purificare', 'Il meteo di domani'], right: 1 }
+        { q: 'Quale saluto si usa tra i fedeli?', answers: ['Che il Suca sia con te', 'Che Abu vinca sempre', 'Ciao, vuoi sapere quanto vale la tua auto?'], right: 0 },
+        { q: 'Se le voci annunciano la vittoria di Abu, cosa sono?', answers: ['Un miracolo già verificato', 'Eresie da purificare', 'Ovvietà'], right: 1 }
       ];
       let quizIndex = 0;
       let quizScore = 0;
