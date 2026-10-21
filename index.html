@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="logo-lupo.svg" />
   <meta name="theme-color" content="#110d20" />
   <meta name="description" content="Il culto immaginario del Suca: un credo satirico per affrontare il caos quotidiano con ironia." />
   <title>Il Culto del Suca · La via dell'Imperturbabilità</title>
@@ -34,7 +35,7 @@
       gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line);
     }
     .brand { text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-weight: 700; letter-spacing: .04em; font-size: 1.2rem; }
-    .brand-symbol { color: var(--gold); border: 1px solid var(--gold); border-radius: 50%; width: 34px; height: 34px; display: inline-grid; place-items: center; font-size: 1.35rem; }
+    .brand-symbol { display: block; width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; border: 1px solid var(--gold); border-radius: 10px; background: #fff8ed; }
     .nav-links { display: flex; flex-wrap: wrap; gap: 12px 28px; }
     .nav-links a { color: var(--muted); font-size: .9rem; text-decoration: none; }
     .nav-links a:hover, .nav-links a:focus { color: var(--gold); }
@@ -43,7 +44,8 @@
     .hero h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.058em; font-size: clamp(4.2rem, 13vw, 10rem); line-height: .95; margin: 28px 0 25px; text-shadow: 0 15px 70px rgba(175,132,245,.24); }
     .hero h1 span { color: var(--gold); }
     .hero p { color: var(--muted); max-width: 690px; margin: 0 auto 34px; font-size: clamp(1.05rem, 2.2vw, 1.27rem); }
-    .hero-seal { display: inline-grid; place-items: center; margin: 5px auto 30px; width: 100px; height: 100px; border-radius: 50%; border: 1px solid rgba(245, 205, 135, .6); background: linear-gradient(130deg, rgba(173, 132, 245, .19), rgba(245, 205, 135, .08)); box-shadow: 0 0 0 12px rgba(245,205,135,.04), 0 0 65px rgba(173,132,245,.11); font-family: Georgia,serif; font-size: 3.7rem; color: var(--gold); }
+    .hero-seal { display: inline-grid; place-items: center; margin: 5px auto 30px; width: 134px; height: 134px; padding: 7px; border-radius: 26px; border: 1px solid rgba(245, 205, 135, .6); background: linear-gradient(130deg, rgba(173, 132, 245, .19), rgba(245, 205, 135, .08)); box-shadow: 0 0 0 12px rgba(245,205,135,.04), 0 0 65px rgba(173,132,245,.11); }
+    .hero-seal img { display: block; width: 100%; height: 100%; border-radius: 19px; background: #fff8ed; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 740; text-decoration: none; border-radius: 999px; padding: 13px 23px; border: 1px solid transparent; font-size: .95rem; font-family: inherit; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary { background: var(--gold); color: #21162a; }
@@ -157,7 +159,7 @@
 <body>
   <div class="container">
     <header class="nav">
-      <a class="brand" href="#inizio"><span class="brand-symbol" aria-hidden="true">✦</span> ORDINE DEL SUCA</a>
+      <a class="brand" href="#inizio"><img class="brand-symbol" src="logo-lupo.svg" width="40" height="40" alt="" /> ORDINE DEL SUCA</a>
       <nav class="nav-links" aria-label="Navigazione principale">
         <a href="#origini">Le origini</a>
         <a href="#comandamenti">I precetti</a>
@@ -172,7 +174,7 @@
       <div class="hero" id="inizio">
         <div class="eyebrow">L'unica vera religione</div>
         <h1>IL <span>SUCA</span></h1>
-        <div class="hero-seal" aria-hidden="true">✺</div>
+        <div class="hero-seal" aria-hidden="true"><img src="logo-lupo.svg" width="120" height="120" alt="" /></div>
         <p>Quando il mondo pretende troppo, una voce dal cosmo risponde con due sillabe. Non per offendere. Per liberare.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#comandamenti">Scopri il credo <span aria-hidden="true">↗</span></a>
